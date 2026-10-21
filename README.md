@@ -31,3 +31,42 @@ src/main/java/.../mixin/LevelRendererMixin.java  接 Exit 的地方
 ## 许可证
 
 [CC0 1.0](LICENSE)。
+
+---
+
+# Exit Stonecutter Template
+
+For mods whose code changes little between Minecraft versions, Stonecutter makes developing Iris compatibility
+add-ons easier.
+
+A Fabric mod template that includes the [Exit library (emergency-exit)](https://github.com/Shader-Escape/emergency-exit)
+by default.
+
+The template is based on Minecraft 26.3 and uses [Stonecutter](https://stonecutter.kikugie.dev/) to build several
+Minecraft versions from one codebase, across the 1.21.11 line:
+
+| Minecraft | Obfuscated | Loom plugin | Dependencies | Java |
+|---|---|---|---|---|
+| ≤ 1.21.11 | Yes | `net.fabricmc.fabric-loom-remap`, `mappings(loom.officialMojangMappings())`, output goes through `remapJar` | `modImplementation` | 21 |
+| 26.x | No | `net.fabricmc.fabric-loom`, no mappings, no remapping | `implementation` | 25 |
+
+`build.gradle.kts` switches between the two by the current Stonecutter version, so you do not need a separate build
+script per version.
+
+Included versions: `1.21.1`, `1.21.11`, `26.3` (the main version: the source is written for 26.3).
+
+## Layout
+
+```
+settings.gradle.kts           version list (stonecutter { versions(...) })
+stonecutter.gradle.kts        active version (stonecutter active)
+build.gradle.kts              build script shared by all versions
+gradle.properties             mod id, name, version, Fabric Loader version
+versions/<version>/gradle.properties  Minecraft, Fabric API and Exit versions for each version
+src/main/java/.../ExampleMod.java              entrypoint
+src/main/java/.../mixin/LevelRendererMixin.java  where Exit is hooked in
+```
+
+## License
+
+[CC0 1.0](LICENSE).
