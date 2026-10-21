@@ -15,9 +15,9 @@ val loom = extensions.getByType<LoomGradleExtensionAPI>()
 fun mod(configuration: String) = if (obfuscated) "mod" + configuration.replaceFirstChar(Char::uppercase) else configuration
 
 repositories {
-    maven("https://jitpack.io") {
-        name = "JitPack"
-        content { includeGroup("com.github.Shader-Escape.emergency-exit") }
+    exclusiveContent {
+        forRepository { maven("https://jitpack.io") { name = "JitPack" } }
+        filter { includeGroup("com.github.Shader-Escape.emergency-exit") }
     }
 }
 
@@ -29,7 +29,9 @@ dependencies {
     mod("implementation")("net.fabricmc:fabric-loader:${property("deps.fabric_loader")}")
     mod("implementation")("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}")
 
-    mod("implementation")("com.github.Shader-Escape.emergency-exit:emergency_exit-fabric:${property("deps.exit")}")
+    val exit = "com.github.Shader-Escape.emergency-exit:emergency_exit-fabric:${property("deps.exit")}"
+    mod("implementation")(exit) { isTransitive = false }
+    "include"(exit)
 }
 
 extensions.configure<JavaPluginExtension> {
