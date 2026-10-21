@@ -17,11 +17,11 @@ fun mod(configuration: String) = if (obfuscated) "mod" + configuration.replaceFi
 repositories {
     // Exit 库:先找本机 mavenLocal(emergency-exit 里 publishToMavenLocal 的结果),再找 JitPack。
     mavenLocal {
-        content { includeGroup("com.github.hotpad100c.emergency-exit") }
+        content { includeGroup("com.github.Shader-Escape.emergency-exit") }
     }
     maven("https://jitpack.io") {
         name = "JitPack"
-        content { includeGroup("com.github.hotpad100c.emergency-exit") }
+        content { includeGroup("com.github.Shader-Escape.emergency-exit") }
     }
 }
 
@@ -35,7 +35,7 @@ dependencies {
 
     // Exit 库:JitPack 按 emergency-exit 的分支发布,版本写在 versions/<版本>/gradle.properties 的 deps.exit
     // (26.3 是 master-SNAPSHOT,旧版本是 port~<版本>-SNAPSHOT)。
-    mod("implementation")("com.github.hotpad100c.emergency-exit:emergency_exit-fabric:${property("deps.exit")}")
+    mod("implementation")("com.github.Shader-Escape.emergency-exit:emergency_exit-fabric:${property("deps.exit")}")
 }
 
 extensions.configure<JavaPluginExtension> {

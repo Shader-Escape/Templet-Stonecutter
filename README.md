@@ -3,7 +3,7 @@
 针对版本代码变化不大的模组,用stonecutter开发iris兼容附属更轻松。
 
 这是一个 Fabric 模组模板,用来给已有模组做 Iris(光影包)兼容附属。它默认引入
-[Exit 库(emergency-exit)](https://github.com/hotpad100c/emergency-exit):把你的渲染包进 `Exit.portal`、`Exit.draw`
+[Exit 库(emergency-exit)](https://github.com/Shader-Escape/emergency-exit):把你的渲染包进 `Exit.portal`、`Exit.draw`
 或 `Exit.batch`,开着光影包时这些渲染会绕过光影包,画完后再按深度合并回画面。
 
 模板以 Minecraft 26.3 为原型,用 [Stonecutter](https://stonecutter.kikugie.dev/) 让同一份代码构建多个 Minecraft
@@ -45,7 +45,7 @@ private void wrap(..., Operation<Void> original) {
 ```
 
 Exit 的完整用法(`draw`、`batch`、`portal`、`redirect`,以及每个版本该用哪个 Fabric 渲染事件)见
-[emergency-exit 的 README](https://github.com/hotpad100c/emergency-exit) 和它的 `ChangeLog.md`。
+[emergency-exit 的 README](https://github.com/Shader-Escape/emergency-exit) 和它的 `ChangeLog.md`。
 
 ### 版本差异怎么写
 
@@ -64,10 +64,10 @@ Exit 的完整用法(`draw`、`batch`、`portal`、`redirect`,以及每个版本
 
 ## Exit 库的版本
 
-Exit 从 [JitPack](https://jitpack.io/#hotpad100c/emergency-exit) 引入,坐标是:
+Exit 从 [JitPack](https://jitpack.io/#Shader-Escape/emergency-exit) 引入,坐标是:
 
 ```
-com.github.hotpad100c.emergency-exit:emergency_exit-fabric:<版本>
+com.github.Shader-Escape.emergency-exit:emergency_exit-fabric:<版本>
 ```
 
 emergency-exit 每个 Minecraft 版本一个分支:26.3 在 `master`,其它版本在 `port/<版本>`。JitPack 用分支名做版本,
