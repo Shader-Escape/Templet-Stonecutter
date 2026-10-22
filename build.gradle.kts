@@ -35,7 +35,7 @@ dependencies {
 }
 
 loom.runConfigs.configureEach {
-    runDirectory = rootProject.layout.projectDirectory.dir("run")
+    runDirectory = rootProject.layout.projectDirectory.dir("run/${stonecutter.current.version}")
 }
 
 extensions.configure<JavaPluginExtension> {
