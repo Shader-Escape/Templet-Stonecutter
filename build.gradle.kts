@@ -34,6 +34,10 @@ dependencies {
     "include"(exit)
 }
 
+loom.runConfigs.configureEach {
+    runDirectory = rootProject.layout.projectDirectory.dir("run")
+}
+
 extensions.configure<JavaPluginExtension> {
     withSourcesJar()
     targetCompatibility = requiredJava
